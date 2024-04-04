@@ -7,7 +7,8 @@ app.use(express.json());
 app.use("/", router);
 
 app.listen(8080, () => {
+  connection();
   console.log("port is working");
 });
 
-connection();
+
