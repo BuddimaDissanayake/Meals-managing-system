@@ -1,16 +1,28 @@
-const meal = require ('../models/mealModel');
+const Meal = require("../models/mealModel");
 
+async function getMeals(req, res) {
+  try {
+    const meals = await Meal.find({});
 
-async function getMeals(req,res) {
-    try{
-        const meals = await meal.find({})
-
-        return res.status(201).json(meals);
-    }
-    catch(error){
-       console.log(error);
-    }
-    
+    return res.status(201).json({
+      count: meals.length,
+      data: meals,
+    });
+  } catch (error) {
+    console.log(error);
+  }
 }
 
-module.exports = getMeals;
+async function getMealsById(req, res) {
+  try {
+    console.log("Hello");
+    const { id } = req.params;
+    const mealById = await Meal.findById(id);
+
+    return res.status(202).json(mealById);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+module.exports = { getMeals, getMealsById };

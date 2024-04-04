@@ -13,8 +13,6 @@ function insertData(req, res) {
     }
 
     async function createDocument() {
-      
-
       const newMeal = new mealModel({
         name: name,
         key: key,
@@ -32,6 +30,6 @@ function insertData(req, res) {
   } catch (error) {
     return res.status(500).json({ message: "internal server error" });
   }
-};
+}
 
-module.exports = insertData; 
+module.exports = insertData;
