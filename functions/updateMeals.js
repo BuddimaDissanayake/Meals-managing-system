@@ -12,7 +12,7 @@ async function updateMeals(req, res) {
     const result = await Meal.findByIdAndUpdate(id, req.body);
 
     if (!result) {
-      return res.status(404).send({ message: "Meal not found" });
+      return res.status(404).json({ message: "Meal not found" });
     }
     return res.status(206).send({ message: "Meal updated successfully" });
   } catch (error) {
