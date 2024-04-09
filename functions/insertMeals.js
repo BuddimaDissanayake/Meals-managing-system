@@ -1,7 +1,6 @@
 const mealModel = require("../models/mealModel");
 
-function insertData(req, res) {
-  console.log("insert data working");
+function insertMeals(req, res) {
   try {
     let name = req.body.name;
     let key = req.body.key;
@@ -32,4 +31,4 @@ function insertData(req, res) {
   }
 }
 
-module.exports = insertData;
+module.exports = insertMeals;

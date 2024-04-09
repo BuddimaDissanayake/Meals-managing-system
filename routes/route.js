@@ -1,12 +1,13 @@
 const express = require("express");
 const router = express.Router();
-const insertData = require("../functions/insertMeals");
+const insertMeals = require("../functions/insertMeals");
 const getMeals = require("../functions/getMeals");
-const updateMeals = require("../functions/updateMeals")
-const deleteMeals = require("../functions/deleteMeals")
+const updateMeals = require("../functions/updateMeals");
+const deleteMeals = require("../functions/deleteMeals");
+const addUsers = require("../functions/addUsers");
 
 router.post("/insertData", (req, res) => {
-  insertData(req, res);
+  insertMeals(req, res);
 });
 
 router.get("/getMeals", (req, res) => {
@@ -25,4 +26,7 @@ router.delete("/deleteMeals/:id", (req,res) => {
     deleteMeals(req,res);
 });
 
+router.post("/addUsers", (req,res) => {
+    addUsers(req,res);
+});
 module.exports = router;

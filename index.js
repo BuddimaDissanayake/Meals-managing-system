@@ -2,8 +2,10 @@ const express = require("express");
 const app = express();
 const router = require("./routes/route");
 const connection = require("./services/connection");
+const cors = require('cors');
 
 app.use(express.json());
+app.use(cors());
 app.use("/", router);
 
 app.listen(8080, () => {
