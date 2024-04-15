@@ -29,4 +29,8 @@ router.delete("/deleteMeals/:id", (req, res) => {
 router.post("/addUsers", (req, res) => {
   addUsers(req, res);
 });
+
+router.post("/login", (req,res) => {
+  login(req,res);
+});
 module.exports = router;
