@@ -6,7 +6,11 @@ const mealSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    key: {
+    type: {
+      type: String,
+      required: true,
+    },
+    company: {
       type: String,
       required: true,
     },

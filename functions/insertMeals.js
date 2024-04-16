@@ -3,9 +3,10 @@ const mealModel = require("../models/mealModel");
 function insertMeals(req, res) {
   try {
     let name = req.body.name;
-    let key = req.body.key;
+    let type = req.body.type;
+    let company = req.body.company;
 
-    if (name === "" || key === "") {
+    if (name === "" || type === "") {
       res.status(400).json({
         message: "bad request, name or Id cannot be empty",
       });
@@ -14,7 +15,8 @@ function insertMeals(req, res) {
     async function createDocument() {
       const newMeal = new mealModel({
         name: name,
-        key: key,
+        type: type,
+        company: company,
       });
 
       let meal = await newMeal.save();
