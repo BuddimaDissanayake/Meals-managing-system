@@ -9,7 +9,7 @@ async function deleteMeals(req, res) {
     if (!result) {
       return res.status(404).json({ message: "Meal not found" });
     }
-    return res.status(500).send({ message: "Meal deleted successfully" });
+    return res.status(200).send({ message: "Meal deleted successfully" });
   } catch (error) {
     return res.status(500).send({ message: error.message });
   }
