@@ -26,18 +26,14 @@ const mealSchema = new mongoose.Schema(
       type: Number,
       required: false,
     },
-    Protein: {
+    protein: {
       type: Number,
       required: false,
     },
     carbs: {
       type: Number,
       required: false,
-    },
-    fat: {
-      type: Number,
-      required: false,
-    },
+    }
   },
   {
     timestamps: true,

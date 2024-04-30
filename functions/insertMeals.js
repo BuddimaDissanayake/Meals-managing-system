@@ -4,11 +4,10 @@ function insertMeals(req, res) {
   try {
     let name = req.body.name;
     let type = req.body.type;
-    let company = req.body.company;
 
     if (name === "" || type === "") {
       res.status(400).json({
-        message: "bad request, name or Id cannot be empty",
+        message: "bad request, name or type cannot be empty",
       });
     }
 
@@ -16,7 +15,12 @@ function insertMeals(req, res) {
       const newMeal = new mealModel({
         name: name,
         type: type,
-        company: company,
+        company: req.body.company,
+        catogory: req.body.catogory,
+        date: req.body.date,
+        calories: req.body.calories,
+        carbs: req.body.carbs,
+        protein: req.body.protein
       });
 
       let meal = await newMeal.save();
