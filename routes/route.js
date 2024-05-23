@@ -1,13 +1,20 @@
 const express = require("express");
 const router = express.Router();
+const multer = require("multer");
+const upload = multer({ dest: "uploads/" });
 const insertMeals = require("../functions/insertMeals");
 const getMeals = require("../functions/getMeals");
 const updateMeals = require("../functions/updateMeals");
 const deleteMeals = require("../functions/deleteMeals");
 const addUsers = require("../functions/addUsers");
+const uploadCSV = require("../functions/uploadCsv");
 
 router.post("/insertMeals", (req, res) => {
   insertMeals(req, res);
+});
+
+router.post("/csvMeal", upload.single("file"), (req, res) => {
+  uploadCSV(req, res);
 });
 
 router.get("/getMeals", (req, res) => {
@@ -30,9 +37,8 @@ router.post("/addUsers", (req, res) => {
   addUsers(req, res);
 });
 
-router.post("/login", (req,res) => {
-  login(req,res);
+router.post("/login", (req, res) => {
+  login(req, res);
 });
-
 
 module.exports = router;
