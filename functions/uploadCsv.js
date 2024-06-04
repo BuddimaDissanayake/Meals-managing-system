@@ -17,19 +17,19 @@ function uploadCSV(req, res, next) {
         .insertMany(meal)
         .then(function () {
           res.status(200).send({
-            message: "Successfully Uploaded!",
+            message: "CSV Successfully Uploaded to the DB!",
           });
         })
         .catch(function (error) {
           res.status(500).send({
-            message: "failure",
+            message: "File Uploading Failed!",
             error,
           });
         });
     })
     .catch((error) => {
       res.status(500).send({
-        message: "failure",
+        message: "File path error!",
         error,
       });
     });
