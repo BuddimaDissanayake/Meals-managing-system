@@ -30,7 +30,11 @@ router.put("/updateMeals/:id", (req, res) => {
 });
 
 router.delete("/deleteMeals/:id", (req, res) => {
-  deleteMeals(req, res);
+  deleteMeals.deleteMeals(req, res);
+});
+
+router.post("/deleteMultiple", (req,res) => {
+  deleteMeals.deleteMultiple(req, res);
 });
 
 router.post("/addUsers", (req, res) => {

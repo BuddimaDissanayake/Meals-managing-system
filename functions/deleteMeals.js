@@ -9,10 +9,18 @@ async function deleteMeals(req, res) {
     if (!result) {
       return res.status(404).json({ message: "Meal not found" });
     }
+
     return res.status(200).send({ message: "Meal deleted successfully" });
   } catch (error) {
     return res.status(500).send({ message: error.message });
   }
-}
+};
 
-module.exports = deleteMeals;
+async function deleteMultiple(req, res) {
+  const { ids } = req.body;
+  console.log(ids)
+  await Meal.deleteMany({ _id: { $in: ids } });
+  res.status(200).send('Deleted successfully');
+};
+
+module.exports = {deleteMeals, deleteMultiple};
